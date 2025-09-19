@@ -8,16 +8,38 @@ function EventTitle(props) {
    )
 }
 
+function EventFormField({children}) {
+    return (
+        <fieldset>
+            {children}
+        </fieldset>
+    )
+}
+
+function EventFormFieldLabel({children, htmlFor}) {
+    return (
+        <label htmlFor={htmlFor}>
+            {children}
+        </label>
+    )
+}
+
+function EventFormFieldInput(props) {
+    return (
+        <input {...props} />
+    )
+}
+
 function EventForm() {
     return (
         <form className="event-form">
             <EventTitle>
                 Preencha para criar um evento:
             </EventTitle>
-            <fieldset>
-                <label htmlFor="event_name">Nome do evento</label>
-                <input type="text" name="event_name" placeholder="Summer dev hits"/>
-            </fieldset>
+            <EventFormField>
+                <EventFormFieldLabel htmlFor="event_name">Qual o nome do evento?</EventFormFieldLabel>
+                <EventFormFieldInput type="text" name="event_name" placeholder="Summer dev hits"/>
+            </EventFormField>
         </form>
     )
 }
